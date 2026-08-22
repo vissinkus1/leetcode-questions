@@ -42,9 +42,9 @@ Follow up: Can you solve it in O(n) time complexity?
 ## Solution
 
 **Language:** Java  
-**Runtime:** 1 ms (beats 86.99%)  
-**Memory:** 46.9 MB (beats 92.97%)  
-**Submitted:** 2026-08-21T17:43:58.700Z  
+**Runtime:** 1 ms (beats 86.96%)  
+**Memory:** 47 MB (beats 84.49%)  
+**Submitted:** 2026-08-22T10:49:02.935Z  
 
 ```java
 class Solution {
