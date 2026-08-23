@@ -1,11 +1,11 @@
             }
         }
-            else if(nums[i]==0){
+           // else if(nums[i]==0){
 
             }
 
-                break;
-            }
+             //   break;
+            //}
         
                 count++;
             if(i==i+1){
