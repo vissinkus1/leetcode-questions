@@ -31,18 +31,18 @@ Constraints:
 
 **Language:** Java  
 **Runtime:** 0 ms  
-**Memory:** 43 MB  
-**Submitted:** 2026-08-23T09:26:57.168Z  
+**Memory:** 42.5 MB  
+**Submitted:** 2026-08-23T09:27:49.680Z  
 
 ```java
             }
         }
-            else if(nums[i]==0){
+           // else if(nums[i]==0){
 
             }
 
-                break;
-            }
+             //   break;
+            //}
         
                 count++;
             if(i==i+1){
