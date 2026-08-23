@@ -54,9 +54,9 @@ Note: This question is the same as 1991: https://leetcode.com/problems/find-th
 ## Solution
 
 **Language:** Java  
-**Runtime:** 0 ms  
-**Memory:** 42.5 MB  
-**Submitted:** 2026-08-23T11:26:16.904Z  
+**Runtime:** 1 ms (beats 97.52%)  
+**Memory:** 47.4 MB (beats 41.08%)  
+**Submitted:** 2026-08-23T11:26:23.222Z  
 
 ```java
 class Solution {
@@ -67,7 +67,7 @@ class Solution {
             sum +=num;
         }
         int cs=0;
-        for(int i=0;i<nums;i++){
+        for(int i=0;i<nums.length;i++){
             int ls=cs;
             int rs=sum-cs-nums[i];
             if(ls==rs)
