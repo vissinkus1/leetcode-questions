@@ -25,27 +25,34 @@ Constraints:
 ## Solution
 
 **Language:** Java  
-**Runtime:** 0 ms  
-**Memory:** 42.6 MB  
-**Submitted:** 2026-08-23T12:34:53.541Z  
+**Runtime:** 1 ms (beats 95.44%)  
+**Memory:** 43.6 MB (beats 34.75%)  
+**Submitted:** 2026-08-23T12:35:00.675Z  
 
 ```java
-        newRow.add(1);
-        for(int i=1;i<row;i++){
-        List<Integer>prevRow = result.get(row-1);
-            newRow.add(prevRow.get(i)+prevRow.get(i-1));
-        List<Integer> newRow=new ArrayList<>();
-      for(int row=1;row<numRows;row++){
-     //
-     //1
-     result.get(0).add(1);
-     result.add(new ArrayList<Integer>());
-    //numrow=5
+class Solution {
+    public List<List<Integer>> generate(int numRows) {
+        List<List<Integer>> result=new ArrayList<List<Integer>>();
 
-        List<List<Integer>> result=new ArrayList<List<Integer>>();
-    public List<List<Integer>> generate(int numRows) {
-class Solution {
-
+    //numrow=5
+     result.add(new ArrayList<Integer>());
+     result.get(0).add(1);
+     //1
+     //
+      for(int row=1;row<numRows;row++){
+        List<Integer> newRow=new ArrayList<>();
+        newRow.add(1);
+        List<Integer>prevRow = result.get(row-1);
+        for(int i=1;i<row;i++){
+            newRow.add(prevRow.get(i)+prevRow.get(i-1));
+        }
+        newRow.add(1);
+        result.add(newRow);
+         
+      }
+      return result;
+    }
+}
 ```
 
 ---
