@@ -40,35 +40,70 @@ Constraints:
 ## Solution
 
 **Language:** Java  
-**Runtime:** 701 ms (beats 15.05%)  
-**Memory:** 63 MB (beats 51.91%)  
-**Submitted:** 2026-08-24T10:51:34.558Z  
+**Runtime:** 55 ms (beats 30.57%)  
+**Memory:** 141.1 MB (beats 5.09%)  
+**Submitted:** 2026-08-24T10:52:31.460Z  
 
 ```java
 class Solution {
-    private String findRoot(String word, Set<String> st) {
-        // Try all length substring starting from 0th index
-        for (int l = 1; l <= word.length(); l++) {
-            String root = word.substring(0, l);
-            if (st.contains(root)) {
-                return root;
-            }
+
+    class Node {
+        Node[] child = new Node[26];
+        boolean end;
+    }
+
+    Node root = new Node();
+
+    // Insert dictionary word
+    void insert(String word) {
+        Node temp = root;
+
+        for (char ch : word.toCharArray()) {
+            int i = ch - 'a';
+
+            if (temp.child[i] == null)
+                temp.child[i] = new Node();
+
+            temp = temp.child[i];
         }
+
+        temp.end = true;
+    }
+
+    // Find shortest root
+    String search(String word) {
+        Node temp = root;
+        String ans = "";
+
+        for (char ch : word.toCharArray()) {
+            int i = ch - 'a';
+
+            if (temp.child[i] == null)
+                return word;
+
+            ans += ch;
+            temp = temp.child[i];
+
+            if (temp.end)
+                return ans;
+        }
+
         return word;
     }
 
     public String replaceWords(List<String> dictionary, String sentence) {
-        Set<String> st = new HashSet<>(dictionary);
-        
-        StringBuilder result = new StringBuilder();
-        String[] words = sentence.split(" ");
-        
-        for (String word : words) {
-            result.append(findRoot(word, st)).append(" ");
-        }
-        
-        // Remove the trailing space
-        return result.toString().trim();
+
+        // Store all roots in Trie
+        for (String s : dictionary)
+            insert(s);
+
+        String[] arr = sentence.split(" ");
+        String result = "";
+
+        for (String s : arr)
+            result += search(s) + " ";
+
+        return result.trim();
     }
 }
 ```
