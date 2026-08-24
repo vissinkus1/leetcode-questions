@@ -49,34 +49,26 @@ Constraints:
 ## Solution
 
 **Language:** Java  
-**Runtime:** 1 ms (beats 96.12%)  
-**Memory:** 43.4 MB (beats 20.81%)  
-**Submitted:** 2026-08-22T10:31:18.250Z  
+**Runtime:** 0 ms  
+**Memory:** 42.8 MB  
+**Submitted:** 2026-08-24T18:37:05.395Z  
 
 ```java
-class Solution {
-    public String mergeAlternately(String word1, String word2) {
-         StringBuilder result = new StringBuilder();
 
-        int i = 0;
-        int j = 0;
+        while (i < word1.length() || j < word2.length()) {
+            if (i < word1.length()) {
+                sb.append(word1.charAt(i++));
+            }
+            if (j < word2.length()) {
+                sb.append(word2.charAt(j++));
+            }
+        }
 
-        while (i < word1.length() || j < word2.length()) {
-
-            if (i < word1.length()) {
-                result.append(word1.charAt(i));
-                i++;
-            }
-
-            if (j < word2.length()) {
-                result.append(word2.charAt(j));
-                j++;
-            }
-        }
-
-        return result.toString();
-    }
+        return sb.toString();
+    }
 }
+
+
 ```
 
 ---
